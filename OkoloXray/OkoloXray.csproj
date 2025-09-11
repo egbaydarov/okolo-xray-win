@@ -4,10 +4,10 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
     <RootNamespace>OkoloXray</RootNamespace>
-    <AssemblyName>Okolo XRay</AssemblyName>
-    <Product>Okolo XRay</Product>
-    <PackageId>Okolo XRay</PackageId>
-    <Company>Okolo</Company>
+    <AssemblyName>okolo_xray</AssemblyName>
+    <Product>okolo_xray</Product>
+    <PackageId>okolo_xray</PackageId>
+    <Company>okolo_xray</Company>
     <Copyright>Copyright (C) 2025 Okolo</Copyright>
     <Version>3.2.5.0</Version>
     <AssemblyVersion>3.2.5.0</AssemblyVersion>
