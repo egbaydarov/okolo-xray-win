@@ -1,0 +1,47 @@
+name: Publish and Release Windows App
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # WPF (UseWPF=true) requires Windows. Install .NET 7 SDK to target net7.0-windows
+      - name: Setup .NET SDK 7
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Restore
+        run: dotnet restore OkoloXray/OkoloXray.csproj
+
+      - name: Publish (FolderProfile)
+        run: dotnet publish OkoloXray/OkoloXray.csproj -c Release /p:PublishProfile=FolderProfile
+
+      - name: Rename executable
+        run: Rename-Item -Path 'OkoloXray/publish/okolo_xray.exe' -NewName 'okolo_xray_winx64.exe'
+
+      - name: Upload artifact (.exe)
+        uses: actions/upload-artifact@v4
+        with:
+          name: okolo_xray_winx64-exe
+          path: OkoloXray/publish/okolo_xray_winx64.exe
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          files: |
+            OkoloXray/publish/okolo_xray_winx64.exe
+          generate_release_notes: true
+
