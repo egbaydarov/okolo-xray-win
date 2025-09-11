@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	_ "github.com/okolo-xray-win/xray-wrapper/xray"
+	_ "github.com/egbaydarov/okolo-xray-win/xray-wrapper/xray"
 )
 
 func main() {
