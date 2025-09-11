@@ -15,19 +15,21 @@
     <NoWarn>0108;8600;8601;8602;8603;8604;8618;8625;8629;8762</NoWarn>
     <UseWPF>true</UseWPF>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
-    <ApplicationIcon>Assets/Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Assets/icon.ico</ApplicationIcon>
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <_SuppressWpfTrimError>true</_SuppressWpfTrimError>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <PublishTrimmed>true</PublishTrimmed>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <TrimMode>partial</TrimMode>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <DebugType>none</DebugType>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="NetCore5.0.Microsoft.Expression.Drawing" Version="1.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
@@ -38,12 +40,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="*.dat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
+  	<EmbeddedResource Include="Assets\Libraries\geosite.dat" />
+  	<EmbeddedResource Include="Assets\Libraries\geoip.dat" />
   	<EmbeddedResource Include="Assets\Libraries\XrayCore.dll" />
   	<EmbeddedResource Include="Assets\Libraries\wintun.dll" />
   	<EmbeddedResource Include="Assets\Libraries\tun2socks.exe" />

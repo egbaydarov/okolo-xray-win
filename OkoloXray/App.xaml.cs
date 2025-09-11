@@ -21,6 +21,8 @@ namespace OkoloXray
             LibLoader.ExtractDll("tun.dll");
             LibLoader.ExtractDll("wintun.dll");
             LibLoader.ExtractDll("XrayCore.dll");
+            LibLoader.ExtractDll("geosite.dat");
+            LibLoader.ExtractDll("geoip.dat");
 
             InitializeAppManager();
             InitializeNotifyIcon();
